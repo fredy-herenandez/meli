@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: coupon
+          uri: lb://coupon
+          predicates:
+            - Path=/meli/coupon/**
+          filters:
+            - StripPrefix=2

@@ -7,9 +7,12 @@ import com.meli.technicalevaluation.coupon.model.repository.IFavoriteItemsReposi
 import com.meli.technicalevaluation.coupon.services.ICouponItemsService;
 import com.meli.technicalevaluation.coupon.services.IItemGetApi;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +20,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+@ActiveProfiles("test")
 @SpringBootTest
 public class CouponItemsServiceTest {
 

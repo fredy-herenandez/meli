@@ -5,6 +5,6 @@ spring:
         - id: coupon
           uri: lb://coupon
           predicates:
-            - Path=/meli/coupon/**
+            - Path=/meli/**
           filters:
-            - StripPrefix=2
+            - StripPrefix=1

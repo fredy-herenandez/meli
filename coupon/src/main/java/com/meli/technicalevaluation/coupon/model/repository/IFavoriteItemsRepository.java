@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IFavoriteItemsRepository extends JpaRepository<FavoriteItem, String>{
 
-    @Query(value = "select * from favorite_items fi order by times desc fetch first 5 rows only",nativeQuery = true)
+    @Query(value = "SELECT * FROM favorite_items fi order by 2 DESC LIMIT 5;",nativeQuery = true)
     List<FavoriteItem> listTop();
 
 }

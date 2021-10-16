@@ -7,7 +7,6 @@ import com.meli.technicalevaluation.coupon.dto.ItemApiDto;
 import com.meli.technicalevaluation.coupon.services.ICouponItemsService;
 import com.meli.technicalevaluation.coupon.services.IItemGetApi;
 import com.meli.technicalevaluation.coupon.services.ITopItemsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,15 +16,14 @@ import java.util.Set;
 @Service
 public class CouponItemsServiceImpl implements ICouponItemsService {
 
-    @Autowired
-    private ITopItemsService topItems;
-
+    private final ITopItemsService topItems;
     private final IItemGetApi listItems;
     private final RecursionCoupon recursions;
 
-    public CouponItemsServiceImpl(IItemGetApi listItems, RecursionCoupon recursions) {
+    public CouponItemsServiceImpl(IItemGetApi listItems, RecursionCoupon recursions, ITopItemsService topItems) {
         this.listItems = listItems;
         this.recursions = recursions;
+        this.topItems = topItems;
     }
 
     @Override
@@ -37,7 +35,7 @@ public class CouponItemsServiceImpl implements ICouponItemsService {
         List<String> itemsRequest = new ArrayList<>();
 
         for(String idItem : idItems){
-            ItemApiDto itemApi = listItems.setItem(idItem);
+            ItemApiDto itemApi = (ItemApiDto) listItems.setItem(idItem);
             if (itemApi != null){
                 items.add(itemApi);
                 topItems.updateTop(itemApi.getItemId());

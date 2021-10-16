@@ -12,7 +12,7 @@ import java.util.HashMap;
 @Service
 public class ItemGetApiImpl implements IItemGetApi {
     @Override
-    public ItemApiDto setItem(String idItem) {
+    public Object setItem(String idItem) {
         final String url = "https://api.mercadolibre.com/items/";
         RestTemplate restTemplate = new RestTemplate();
         try {

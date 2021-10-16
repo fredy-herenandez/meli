@@ -1,5 +1,6 @@
 package com.meli.technicalevaluation.coupon.domain;
 
+
 import com.meli.technicalevaluation.coupon.dto.ItemApiDto;
 import org.springframework.stereotype.Component;
 
